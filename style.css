@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  touch-action: none; /* предотвратить скролл при управлении */
+}
+
+.game-container {
+  width: 100%;
+  height: calc(100% - 120px); /* оставить место под кнопки */
+  max-width: 800px;
+  max-height: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+canvas#gameCanvas {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#66aaff, #88ccff);
+  display: block;
+}
+
+.controls {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  pointer-events: none; /* чтобы события проходили только по кнопкам */
+}
+
+.controls-left,
+.controls-right {
+  display: flex;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.control-btn {
+  width: 80px;
+  height: 80px;
+  background: rgba(30, 30, 30, 0.3);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  transition: opacity 0.1s ease;
+}
+
+.control-btn:active,
+.control-btn.active {
+  opacity: 0.7;
+}
+
+@media (min-width: 801px) {
+  .game-container {
+    height: calc(100% - 140px);
+  }
+}
+
